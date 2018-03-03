@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SibersProjectsConnection-Web.config Connection String" description="SibersProjectsConnection Connection String used in web.config by the application to access the database." defaultValue="data source=(local);initial catalog=SibersProjects;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\TS-PC\\Documents\\Visual\ Studio\ 2015\\Projects\\SibersWeb\\SibersWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SibersProjectsConnection']/@connectionString" />
+  </parameter>
+  <parameter name="SibersDAL.ProjectsDbContext-Web.config Connection String" description="SibersDAL.ProjectsDbContext Connection String used in web.config by the application to access the database." defaultValue="SibersDAL.ProjectsDbContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\TS-PC\\Documents\\Visual\ Studio\ 2015\\Projects\\SibersWeb\\SibersWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SibersDAL.ProjectsDbContext']/@connectionString" />
+  </parameter>
+  <parameter name="SibersDAL.ProjectsDbContext_DatabasePublish-Web.config Connection String" description="SibersDAL.ProjectsDbContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="SibersDAL.ProjectsDbContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\TS-PC\\Documents\\Visual\ Studio\ 2015\\Projects\\SibersWeb\\SibersWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SibersDAL.ProjectsDbContext_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

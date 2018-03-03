@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<link rel="stylesheet" href="/Content/angular-material.min.css">
+<link rel="stylesheet" href="/Content/Site.css">
+<link rel="stylesheet" href="/Content/bootstrap.css">
+<link rel="stylesheet" href="/Content/ui-grid.css">
+<link rel="stylesheet" href="/Content/sweetalert.css">
+<script src="/Scripts/angular/angular.min.js"></script>
+<script src="/Scripts/angular-animate/angular-animate.min.js"></script>
+<script src="/Scripts/angular-aria/angular-aria.min.js"></script>
+<script src="/Scripts/angular-material/angular-material.min.js"></script>
+<script src="/Scripts/ui-grid.js"></script>
+<script src="/Scripts/i18n/angular-locale_ru-ru.js"></script>
+<script src="~/Scripts/sweetalert.min.js"></script>
+<script src="~/AngularScripts/Modules/HomeModule.js"></script>
+<script src="~/AngularScripts/Controllers/CompanyController.js"></script>
+<script src="~/AngularScripts/Controllers/EmployeeController.js"></script>
+
+<div ng-cloak ng-app="app" >
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <div ng-controller="CompanyController">
+                <md-tab label="Компании" md-on-select="getCompanies()">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Компании</h1>
+                        <div layout="column" ng-cloak class="md-inline-form" align="center">
+                            <md-content layout-gt-sm="row"  style="align-self: center;" >
+
+                                <md-input-container>
+                                    <label>Наименование</label>
+                                    <input ng-model="Name">
+                                </md-input-container>
+                                
+                                @*<md-input-container style="width: 150px;">
+                                    <label>Сотрудники</label>
+                                    <md-select multiple="true" ng-model="selectedEmployees">
+                                        <md-option ng-repeat="employee in employees" ng-value="employee.Id">
+                                            {{employee.Name}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>*@
+                                <md-input-container style="width: 179px;">
+                                    <md-button class="btn-primary" ng-click="addCompany()">Добавить</md-button>
+                                </md-input-container>
+                            </md-content>
+                        </div>
+                        <div ui-i18n="ru">
+                            <div id="grid1" ui-grid="gridOptionsCompanies" ui-grid-pagination   class="grid" style="height: 400px;"></div>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </div>
+           <div ng-controller="EmployeeController">
+                <md-tab label="Сотрудники" md-on-select="getEmployees()">
+                    <md-content class="md-padding">
+                        <h1 class="md-display-2">Сотрудники</h1>
+                        <div layout="column" ng-cloak class="md-inline-form" align="center">
+                            <md-content layout-gt-sm="row" style="align-self: center;">
+
+                                <md-input-container>
+                                    <label>Имя</label>
+                                    <input ng-model="Name">
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Фамилия</label>
+                                    <input ng-model="Surname">
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Отчество</label>
+                                    <input ng-model="Patronymic">
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Почта</label>
+                                    <input ng-model="Email">
+                                </md-input-container>
+                                <md-input-container style="width: 150px;">
+                                    <label>Компания</label>
+                                    <md-select  ng-model="selectedCompany">
+                                        <md-option ng-repeat="company in companies" ng-value="company.ID">
+                                            {{company.Name}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <md-input-container style="width: 179px;">
+                                    <md-button class="btn-primary" ng-click="addEmployee()">Добавить</md-button>
+                                </md-input-container>
+                            </md-content>
+                        </div>
+                        <div ui-i18n="ru">
+                            <div id="grid2" ui-grid="gridOptionsEmployees" class="grid"></div>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </div>
+            <md-tab label="Проекты">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Проекты</h1>
+                    <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>

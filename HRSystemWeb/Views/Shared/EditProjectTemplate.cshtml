@@ -1,0 +1,70 @@
+﻿<md-dialog ng-model="items.Name">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{items.Name}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon class="close" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content" style="display: block;">
+                <md-input-container>
+                    <label>Имя</label>
+                    <input ng-model="items.Name">
+                </md-input-container>
+                <md-input-container>
+                    <md-datepicker ng-model="items.StartDate" md-max-date="items.EndDate" md-placeholder="Дата начала"></md-datepicker>
+                </md-input-container>
+                <md-input-container>
+                    <md-datepicker ng-model="items.EndDate" md-min-date="items.StartDate" md-placeholder="Дата конца"></md-datepicker>
+                </md-input-container>
+                <md-input-container>
+                    <label>Приоритет</label>
+                    <input name="Приоритет" ng-model="items.Priority" placeholder="0-1"
+                           required ng-pattern="/^[0]+\.?[0-9]*$/" md-maxlength="4">
+
+                    <div ng-messages="Priority.$error" role="alert" multiple>
+                        <div ng-message="required" class="my-message">Вы должны ввести приоритет</div>
+                        <div ng-message="pattern" class="my-message">
+                            Приоритет должен быть от 0 до 1.
+                        </div>
+                        <div ng-message="md-maxlength" class="my-message">
+                            Приоритет не должен быть длинным.
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Комментарии</label>
+                    <input ng-model="items.Comment">
+                </md-input-container>
+                <md-input-container style="width: 150px;">
+                    <label>Компания заказчик</label>
+                    <md-select ng-model="items.ClientCompanyId">
+                        <md-option ng-repeat="company in companies" ng-value="company.ID">
+                            {{company.Name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="width: 150px;">
+                    <label>Компания исполнитель</label>
+                    <md-select ng-model="items.ExecutorCompanyId">
+                        <md-option ng-repeat="company in companies" ng-value="company.ID">
+                            {{company.Name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+
+            <span flex></span>
+            <md-button class="md-raised md-danger" ng-click="cancel()">Отмена</md-button>
+            <md-button class="md-raised md-primary" ng-click="upadteProject()">Сохранить</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

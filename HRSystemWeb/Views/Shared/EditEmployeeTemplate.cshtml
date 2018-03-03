@@ -1,0 +1,49 @@
+﻿<md-dialog ng-model="items.Name">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{items.Name}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon class="close" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content" style="display: inline-flex;">
+                <md-input-container>
+                    <label>Имя</label>
+                    <input ng-model="items.Name">
+                </md-input-container>
+                <md-input-container>
+                    <label>Фамилия</label>
+                    <input ng-model="items.Surname">
+                </md-input-container>
+                <md-input-container>
+                    <label>Отчество</label>
+                    <input ng-model="items.Patronymic">
+                </md-input-container>
+                <md-input-container>
+                    <label>Почта</label>
+                    <input ng-model="items.Email">
+                </md-input-container>
+                <md-input-container style="width: 150px;">
+                    <label>Компания</label>
+                    <md-select ng-model="items.CompanyId">
+                        <md-option ng-repeat="company in companies" ng-value="company.ID">
+                            {{company.Name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+
+            <span flex></span>
+            <md-button class="md-raised md-danger" ng-click="cancel()">Отмена</md-button>
+            <md-button class="md-raised md-primary" ng-click="upadteEmployee()">Сохранить</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

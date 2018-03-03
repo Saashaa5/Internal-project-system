@@ -1,0 +1,41 @@
+﻿<md-dialog ng-model="items.Name">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{items.Name}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon class="close" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content" style="display: block;">
+              <md-input-container style="width: 150px;">
+                    <label>Управляющий</label>
+                    <md-select  ng-model="items.Chief">
+                        <md-option ng-repeat="employee in employees" ng-value="employee.ID">
+                            {{employee.Name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container style="width: 150px;">
+                    <label>Сотрудники</label>
+                    <md-select multiple ng-model="items.EmployeesToProject">
+                        <md-option ng-repeat="employee in employees" ng-value="employee.ID">
+                            {{employee.Name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+
+            <span flex></span>
+            <md-button class="md-raised md-danger" ng-click="cancel()">Отмена</md-button>
+            <md-button class="md-raised md-primary" ng-click="addEmployees()">Сохранить</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
