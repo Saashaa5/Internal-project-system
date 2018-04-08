@@ -12,8 +12,8 @@ namespace HRSystemBLL.Services
 {
     public class EmployeeService : BaseService, IEmployeeService
     {
-        public GenericRepository<Employee> EmployeeRepository;
-        public GenericRepository<Company> CompanyRepository;
+        public IGenericRepository<Employee> EmployeeRepository;
+        public IGenericRepository<Company> CompanyRepository;
         public EmployeeService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
             EmployeeRepository = UnitOfWork.GetRepository<Employee>();
@@ -75,7 +75,6 @@ namespace HRSystemBLL.Services
 
         public bool DeleteEmployee(int id)
         {
-
             if (!EmployeeRepository.Get(x => x.ID == id).Any())
             {
                 return false;
@@ -90,7 +89,7 @@ namespace HRSystemBLL.Services
             employee.Company = company;
             EmployeeRepository.Update(employee);
             UnitOfWork.Save();
-            return company.Name;
+            return employee.Name;
         }
 
     }

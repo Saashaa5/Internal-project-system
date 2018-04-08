@@ -12,15 +12,14 @@ namespace HRSystemBLL.Services
 {
    public class CompanyService:BaseService, ICompanyService
    {
-       public GenericRepository<Company> Repository; 
+       public IGenericRepository<Company> Repository; 
        public CompanyService(IUnitOfWork unitOfWork) : base(unitOfWork)
        {
            Repository = UnitOfWork.GetRepository<Company>(); 
        }
 
         public bool DeleteCompany(int id)
-        {
-            
+        {            
             if (UnitOfWork.GetRepository<Employee>().Get(x=>x.CompanyId==id).Any())
             {
                 return false;
@@ -36,8 +35,7 @@ namespace HRSystemBLL.Services
         }
 
         public Company AddCompany(string name)
-       {
-          
+       {          
            if (Repository.Get(x => x.Name == name).Any())
            {
                return null;

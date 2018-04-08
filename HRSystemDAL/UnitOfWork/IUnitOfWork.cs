@@ -9,7 +9,7 @@ namespace HRSystemDAL.UnitOfWork
 {
     public interface IUnitOfWork 
     {
-        GenericRepository<T> GetRepository<T>() where T : class;
+        IGenericRepository<T> GetRepository<T>() where T : class;
         void Save();
     }
 }

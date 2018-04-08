@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HRSystemDAL.Repository
 {
-    public class GenericRepository<TEntity> where TEntity : class//шаблонный GenericRepository для работы с контекстом
+    public class GenericRepository<TEntity>: IGenericRepository<TEntity> where TEntity : class//шаблонный GenericRepository для работы с контекстом
     {
         internal ProjectsDbContext context;
         internal DbSet<TEntity> dbSet;

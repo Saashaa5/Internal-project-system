@@ -12,9 +12,9 @@ namespace HRSystemBLL.Services
 {
     public class ProjectService : BaseService, IProjectService
     {
-        public GenericRepository<Project> ProjectRepository;
-        public GenericRepository<EmployeeToProject> EmployeeToProjectRepository;
-        public GenericRepository<Company> CompanyRepository;
+        public IGenericRepository<Project> ProjectRepository;
+        public IGenericRepository<EmployeeToProject> EmployeeToProjectRepository;
+        public IGenericRepository<Company> CompanyRepository;
         public ProjectService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
             ProjectRepository = UnitOfWork.GetRepository<Project>();

@@ -19,7 +19,7 @@ namespace HRSystemDAL.UnitOfWork
         {
             context = projectDbContext;
         }
-        public GenericRepository<T> GetRepository<T>() where T : class
+        public IGenericRepository<T> GetRepository<T>() where T : class
         {
             //Если репозиторий не создан
             if (!repos.ContainsKey(typeof(T)))

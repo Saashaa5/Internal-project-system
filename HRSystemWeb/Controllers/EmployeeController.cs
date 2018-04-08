@@ -46,8 +46,8 @@ namespace HRSystemWeb.Controllers
         public JsonResult UpdateEmployee(string newEmployee)
         {
             Employee employee = JsonConvert.DeserializeObject<Employee>(newEmployee);
-            var companyName = _employeeService.UpdateEmployee(employee);
-            return Json(new { success = true, companyName }, JsonRequestBehavior.AllowGet);
+            var employeeName = _employeeService.UpdateEmployee(employee);
+            return Json(new { success = true, employeeName }, JsonRequestBehavior.AllowGet);
         }
 
 

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSystemDAL", "HRSystemDAL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSystemWeb", "HRSystemWeb\HRSystemWeb.csproj", "{B2253D45-4751-4105-8501-6D2F8B0C7F81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRSystemTest", "HRSystemTest\HRSystemTest.csproj", "{EC5C1456-3A70-4D4B-A978-6C031FB0D2F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B2253D45-4751-4105-8501-6D2F8B0C7F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2253D45-4751-4105-8501-6D2F8B0C7F81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2253D45-4751-4105-8501-6D2F8B0C7F81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC5C1456-3A70-4D4B-A978-6C031FB0D2F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC5C1456-3A70-4D4B-A978-6C031FB0D2F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC5C1456-3A70-4D4B-A978-6C031FB0D2F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC5C1456-3A70-4D4B-A978-6C031FB0D2F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
