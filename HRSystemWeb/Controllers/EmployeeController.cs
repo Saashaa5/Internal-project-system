@@ -34,14 +34,13 @@ namespace HRSystemWeb.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public JsonResult DeleteEmployee(int id)
         {
             var result = _employeeService.DeleteEmployee(id);
             return Json(new { success = result }, JsonRequestBehavior.AllowGet);
         }
-
-
-
+        
         [HttpGet]
         public JsonResult UpdateEmployee(string newEmployee)
         {

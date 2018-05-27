@@ -36,16 +36,12 @@ namespace HRSystemBLL.Services
 
         public Company AddCompany(string name)
        {          
-           if (Repository.Get(x => x.Name == name).Any())
-           {
-               return null;
-           }
-            Repository.Insert(new Company()
+           Repository.Insert(new Company()
             {
                 Name = name
             });
             UnitOfWork.Save();
-            var company = Repository.Get(x => x.Name == name).FirstOrDefault();
+            var company = Repository.Get(x => x.Name == name).ToList().FirstOrDefault(x => x.Name == name);
            return company;
        }
 

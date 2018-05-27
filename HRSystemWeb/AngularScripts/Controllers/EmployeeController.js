@@ -17,7 +17,7 @@
             columnDefs: [
             {
                 name: ' ',
-                cellTemplate: '<center><button type="button" ng-click="grid.appScope.deleteRow(row)" class="btn btn-default"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button> <button type="button" ng-click="grid.appScope.edit(row)" class="btn btn-default"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></center>',
+                cellTemplate: '<center><button type="button" ng-click="grid.appScope.deleteRow(row)" id="{{row.entity.Email}}" class="btn btn-default"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button> <button type="button" ng-click="grid.appScope.edit(row)" class="btn btn-default"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></center>',
                 width: 140,
                 enableSorting: false,
                 enableFiltering: false
@@ -25,7 +25,7 @@
               { name: 'Name', displayName: 'Имя', headerCellClass: $scope.highlightFilteredHeader },
               { name: 'Surname', displayName: 'Фамилия', headerCellClass: $scope.highlightFilteredHeader },
               { name: 'Patronymic', displayName: 'Отчество', headerCellClass: $scope.highlightFilteredHeader },
-              { name: 'Email', displayName: 'Почта', headerCellClass: $scope.highlightFilteredHeader },
+              { name: 'Email', displayName: 'Почта', headerCellClass: $scope.highlightFilteredHeader, cellClass: 'employee-class' },
               { name: 'Company.Name', displayName: 'Компания', headerCellClass: $scope.highlightFilteredHeader }
 
 

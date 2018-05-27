@@ -65,12 +65,12 @@ app.controller('CompanyController', ['$scope', 'i18nService', '$http', function 
         columnDefs: [
         {
             name: ' ',
-            cellTemplate: '<center><button type="button" ng-click="grid.appScope.deleteRow(row)" class="btn btn-default"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button> <button type="button" ng-click="grid.appScope.edit(row)" class="btn btn-default"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></center>',
+            cellTemplate: '<center><button type="button" ng-click="grid.appScope.deleteRow(row)" id="{{row.entity.Name}}" class="btn btn-default"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button> <button type="button" ng-click="grid.appScope.edit(row)" class="btn btn-default"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></center>',
             width: 140,
             enableSorting: false,
             enableFiltering: false
         },
-          { name: 'Name', displayName: 'Компания', headerCellClass: $scope.highlightFilteredHeader }
+        { name: 'Name', displayName: 'Компания', headerCellClass: $scope.highlightFilteredHeader, cellClass: 'company-class' }
         ],
         data: {}
     };

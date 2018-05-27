@@ -19,6 +19,7 @@ namespace HRSystemWeb.Controllers
 
         // GET: Company
         [HttpGet]
+        [AllowAnonymous]
         public JsonResult DeleteCompany(int id)
         {
             var result = _companyService.DeleteCompany(id);
@@ -26,6 +27,7 @@ namespace HRSystemWeb.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public JsonResult UpdateCompany(int id, string name)
         {
             var company = _companyService.GetCompany(id);
@@ -36,6 +38,7 @@ namespace HRSystemWeb.Controllers
 
 
         [HttpGet]
+        [AllowAnonymous]
         public JsonResult AddCompany(string name)
         {
             var company = _companyService.AddCompany(name);
@@ -53,6 +56,7 @@ namespace HRSystemWeb.Controllers
 
 
         [HttpGet]
+        [AllowAnonymous]
         public JsonResult GetCompanies(string filter, string sortColumn, string sortDirection, int page, int pageSize)
         {
             var companies = _companyService.GetCompanies(filter, sortColumn, sortDirection, page, pageSize);

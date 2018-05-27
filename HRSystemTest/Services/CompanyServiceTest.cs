@@ -100,19 +100,33 @@ namespace HRSystemTest.Services
         [TestMethod()]
         public void AddCompany()
         {
-            var companies = new List<Company>() { new Company{
-                ID = 1,
-                Name = "Name"
-            } };
+            Random rand = new Random();
+            var companies = new List<Company>();
 
-            var company = new Company() {
-                ID = 1,
-                Name = "Name"
-            };
+            for (var i = 0; i < 10; i++)
+            {
+                var id = rand.Next(1, 10);
+                var name = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
+
+                if (companies.All(x => x.ID != id))
+                {
+                    companies.Add(new Company
+                    {
+                        ID = id,
+                        Name = name
+                    });
+                }
+                else
+                {
+                    Console.WriteLine("Такая компания уже есть");
+                }
+            }
+
             //Arrange
-            _mockCompanyRepository.SetupSequence(
-                x => x.Get(null, null, ""))
-                .Returns(companies);
+            _mockCompanyRepository.Setup(
+                    x => x.Get(It.IsAny<Expression<Func<Company, bool>>>(), It.IsAny<Func<IQueryable<Company>, IOrderedQueryable<Company>>>(), It.IsAny<string>()))
+                .Returns(companies)
+                .Verifiable("Method should be called"); ;
             _mockCompanyRepository.Setup(
                 x => x.Insert(It.IsAny<Company>()))
                 .Verifiable("Method should be called");
@@ -121,9 +135,14 @@ namespace HRSystemTest.Services
             //Act
             if (service != null)
             {
-                var result = service.AddCompany("");
-                //Assert
-                Assert.AreSame(null, result);
+                foreach (var company in companies)
+                {
+                    var result = service.AddCompany(company.Name);
+                    //Assert
+                    Assert.AreEqual(company.Name, result.Name);
+
+                    Console.WriteLine(company.ID + " " + company.Name);
+                }
             }
             else
             {
